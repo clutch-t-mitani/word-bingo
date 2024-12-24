@@ -8,7 +8,7 @@ function getInputWords()
 {
     $oneside_squares_count = fgets(STDIN); // ビンゴの一辺のマスの数
     
-    // ビンゴの単語(横列) の配列リストを作成
+    // ビンゴの単語(横列)の配列リストを作成
     $row_words_list = []; 
     for ($i=0; $i < $oneside_squares_count; $i++) {
         $row_words_list[] =  array_map('trim', explode(" ", fgets(STDIN)));
@@ -38,7 +38,7 @@ function executionBingo()
     // 標準入力された値を取得。変数に格納
     $input_words_array = getInputWords(); 
     $oneside_squares_count = $input_words_array['oneside_squares_count']; // ビンゴの一辺のマスの数
-    $row_words_list = $input_words_array['row_words_list']; // ビンゴの単語(横列) の配列リスト
+    $row_words_list = $input_words_array['row_words_list']; // ビンゴの単語(横列)の配列リスト
     $selected_words_array = $input_words_array['selected_words_array']; // 選択されたの単語の配列
     
     // 横列にビンゴがあるかの判定
@@ -52,7 +52,7 @@ function executionBingo()
         return 'yes';
     }
     
-    // ビンゴの単語(斜め）の配列リストを作成し、ビンゴになるかの判定
+    // ビンゴの単語(斜め)の配列リストを作成し、ビンゴになるかの判定
     $diagonal_words_list = createDiagonalWordsList($row_words_list);
     if (getBingoResult($oneside_squares_count, $diagonal_words_list, $selected_words_array)) {
         return 'yes';
